@@ -14,7 +14,8 @@ E_fl = 204000; % from abaqus
 E_gsk = 18000; % from abaqus
 poison = 0.3;
 poison_gsk = 0.26;
-pressure = 310.3*8; % pressure times distance pressure is being applied on
+% old_pressure = 310.3;
+pressure = 199.544*8; % pressure times distance pressure is being applied on
 % read in the mesh
 originalMesh = ReadInMeshInfo(file, 100, []);
 mesh = originalMesh;
@@ -139,7 +140,7 @@ set(fh, 'color', 'white');
 
 figure(5)
 exMesh = ReadInMeshInfo(file, 100, femSystem.D*100);
-trimesh(exMesh .TwoDElements, exMesh.TwoDNodes(:,1),exMesh .TwoDNodes(:,2), magnitudes*100)
+trimesh(exMesh .TwoDElements, exMesh.TwoDNodes(:,1),exMesh .TwoDNodes(:,2), magnitudes)
 xlabel('X','fontsize',14)
 ylabel('Y','fontsize',14)
 title('Exagerated Mesh','fontsize',14)
