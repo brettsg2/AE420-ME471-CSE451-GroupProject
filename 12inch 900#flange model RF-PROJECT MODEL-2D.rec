@@ -12,44 +12,6 @@ from job import *
 from sketch import *
 from visualization import *
 from connectorBehavior import *
-mdb.meshEditOptions.setValues(enableUndo=True, maxUndoCacheElements=0.5)
-mdb.jobs['TWOHALFMODEL'].submit(consistencyChecking=OFF)
-mdb.jobs['TWOHALFMODEL']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
-    'clientHost': 'Sam-Laptop', 'handle': 0, 'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
-    'message': 'DEGREE OF FREEDOM 6 IS NOT ACTIVE IN THIS MODEL AND CANNOT BE RESTRAINED.', 
-    'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
-    'message': '1 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
-    'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
-    'file': 'C:\\Temp\\TWOHALFMODEL.odb', 'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
-    'message': 'Analysis phase complete', 'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(STARTED, {'phase': STANDARD_PHASE, 
-    'clientHost': 'Sam-Laptop', 'handle': 23936, 'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
-    'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 0, 'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
-    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
-    'jobName': 'TWOHALFMODEL', 'severe': 0, 'iterations': 0, 
-    'phase': STANDARD_PHASE, 'equilibrium': 0})
-mdb.jobs['TWOHALFMODEL']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
-    'jobName': 'TWOHALFMODEL', 'memory': 25.0})
-mdb.jobs['TWOHALFMODEL']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 1, 'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
-    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 1, 
-    'jobName': 'TWOHALFMODEL', 'severe': 0, 'iterations': 3, 
-    'phase': STANDARD_PHASE, 'equilibrium': 3})
-mdb.jobs['TWOHALFMODEL']._Message(END_STEP, {'phase': STANDARD_PHASE, 
-    'stepId': 1, 'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
-    'message': 'Analysis phase complete', 'jobName': 'TWOHALFMODEL'})
-mdb.jobs['TWOHALFMODEL']._Message(JOB_COMPLETED, {
-    'time': 'Mon Dec 03 20:11:27 2018', 'jobName': 'TWOHALFMODEL'})
 mdb.jobs['2DSPIRAL-HALFWOCAP'].submit(consistencyChecking=OFF)
 mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
     'clientHost': 'Sam-Laptop', 'handle': 0, 'jobName': '2DSPIRAL-HALFWOCAP'})
@@ -65,7 +27,7 @@ mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE,
 mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
     'message': 'Analysis phase complete', 'jobName': '2DSPIRAL-HALFWOCAP'})
 mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(STARTED, {'phase': STANDARD_PHASE, 
-    'clientHost': 'Sam-Laptop', 'handle': 23676, 
+    'clientHost': 'Sam-Laptop', 'handle': 18500, 
     'jobName': '2DSPIRAL-HALFWOCAP'})
 mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(STEP, {'phase': STANDARD_PHASE, 
     'stepId': 1, 'jobName': '2DSPIRAL-HALFWOCAP'})
@@ -88,32 +50,4 @@ mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(END_STEP, {'phase': STANDARD_PHASE,
 mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
     'message': 'Analysis phase complete', 'jobName': '2DSPIRAL-HALFWOCAP'})
 mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(JOB_COMPLETED, {
-    'time': 'Mon Dec 03 20:11:55 2018', 'jobName': '2DSPIRAL-HALFWOCAP'})
-mdb.models['2DSPIRAL-1'].ConstrainedSketch(name='__edit__', objectToCopy=
-    mdb.models['2DSPIRAL-1'].parts['FLGRF'].features['Partition face-1'].sketch)
-mdb.models['2DSPIRAL-1'].parts['FLGRF'].projectReferencesOntoSketch(filter=
-    COPLANAR_EDGES, sketch=mdb.models['2DSPIRAL-1'].sketches['__edit__'], 
-    upToFeature=
-    mdb.models['2DSPIRAL-1'].parts['FLGRF'].features['Partition face-1'])
-del mdb.models['2DSPIRAL-1'].sketches['__edit__']
-mdb.models['2DSPIRAL-1'].parts['FLGRF'].regenerate()
-mdb.models['2DSPIRAL-1'].ConstrainedSketch(name='__edit__', objectToCopy=
-    mdb.models['2DSPIRAL-1'].parts['FLGRF'].features['Partition face-1'].sketch)
-mdb.models['2DSPIRAL-1'].parts['FLGRF'].projectReferencesOntoSketch(filter=
-    COPLANAR_EDGES, sketch=mdb.models['2DSPIRAL-1'].sketches['__edit__'], 
-    upToFeature=
-    mdb.models['2DSPIRAL-1'].parts['FLGRF'].features['Partition face-1'])
-del mdb.models['2DSPIRAL-1'].sketches['__edit__']
-mdb.models['2DSPIRAL-1'].sketches['FLANGE-5'].writeIgesFile(
-    'C:/src/420GroupProj/AE420-ME471-CSE451-GroupProject/Flange.igs', flavor=
-    STANDARD)
-mdb.models['2DSPIRAL-1'].sketches['SPIRAL-5'].writeIgesFile(
-    'C:/src/420GroupProj/AE420-ME471-CSE451-GroupProject/gasket.igs', flavor=
-    STANDARD)
-mdb.models['2DSPIRAL-1'].ConstrainedSketch(name='__edit__', objectToCopy=
-    mdb.models['2DSPIRAL-1'].parts['FLGRF'].features['Partition face-1'].sketch)
-mdb.models['2DSPIRAL-1'].parts['FLGRF'].projectReferencesOntoSketch(filter=
-    COPLANAR_EDGES, sketch=mdb.models['2DSPIRAL-1'].sketches['__edit__'], 
-    upToFeature=
-    mdb.models['2DSPIRAL-1'].parts['FLGRF'].features['Partition face-1'])
-del mdb.models['2DSPIRAL-1'].sketches['__edit__']
+    'time': 'Wed Dec 05 07:46:26 2018', 'jobName': '2DSPIRAL-HALFWOCAP'})

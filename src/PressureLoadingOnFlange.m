@@ -78,22 +78,22 @@ for el = femSystem.Elements
     stresses(2, elc) = thisStress(2);
     stresses(3, elc) = thisStress(3);
 
-%     stressesPerNode(el.Node1.Index) = sqrt(thisStress(1)^2 + stressesPerNode(el.Node1.Index)^2);
-%     stressesPerNode(el.Node2.Index) =sqrt(thisStress(2)^2 + stressesPerNode(el.Node2.Index)^2);
-%     stressesPerNode(el.Node3.Index) =sqrt(thisStress(3)^2 + stressesPerNode(el.Node3.Index)^2);
-%     
-%     strainsPerNode(el.Node1.Index) =sqrt(thisStrain(1)^2 + strainsPerNode(el.Node1.Index)^2);
-%     strainsPerNode(el.Node2.Index) =sqrt(thisStrain(2)^2 + strainsPerNode(el.Node2.Index)^2);
-%     strainsPerNode(el.Node3.Index) = sqrt(thisStrain(3)^2 + strainsPerNode(el.Node3.Index)^2);
+    stressesPerNode(el.Node1.Index) = sqrt(thisStress(1)^2 + stressesPerNode(el.Node1.Index)^2);
+    stressesPerNode(el.Node2.Index) =sqrt(thisStress(2)^2 + stressesPerNode(el.Node2.Index)^2);
+    stressesPerNode(el.Node3.Index) =sqrt(thisStress(3)^2 + stressesPerNode(el.Node3.Index)^2);
+    
+    strainsPerNode(el.Node1.Index) =sqrt(thisStrain(1)^2 + strainsPerNode(el.Node1.Index)^2);
+    strainsPerNode(el.Node2.Index) =sqrt(thisStrain(2)^2 + strainsPerNode(el.Node2.Index)^2);
+    strainsPerNode(el.Node3.Index) = sqrt(thisStrain(3)^2 + strainsPerNode(el.Node3.Index)^2);
 %I Don't know how to properly compare the stresses and strains here with
 %the von mises stress in Abaqus...
-     stressesPerNode(el.Node1.Index) = abs(thisStress(1)) + stressesPerNode(el.Node1.Index);
-     stressesPerNode(el.Node2.Index) =abs(thisStress(2)) + stressesPerNode(el.Node2.Index);
-     stressesPerNode(el.Node3.Index) =abs(thisStress(3)) + stressesPerNode(el.Node3.Index);
-     
-     strainsPerNode(el.Node1.Index) =abs(thisStrain(1)) + strainsPerNode(el.Node1.Index);
-     strainsPerNode(el.Node2.Index) =abs(thisStrain(2)) + strainsPerNode(el.Node2.Index);
-     strainsPerNode(el.Node3.Index) =abs(thisStrain(3)) + strainsPerNode(el.Node3.Index);
+%      stressesPerNode(el.Node1.Index) = abs(thisStress(1)) + stressesPerNode(el.Node1.Index);
+%      stressesPerNode(el.Node2.Index) =abs(thisStress(2)) + stressesPerNode(el.Node2.Index);
+%      stressesPerNode(el.Node3.Index) =abs(thisStress(3)) + stressesPerNode(el.Node3.Index);
+%      
+%      strainsPerNode(el.Node1.Index) =abs(thisStrain(1)) + strainsPerNode(el.Node1.Index);
+%      strainsPerNode(el.Node2.Index) =abs(thisStrain(2)) + strainsPerNode(el.Node2.Index);
+%      strainsPerNode(el.Node3.Index) =abs(thisStrain(3)) + strainsPerNode(el.Node3.Index);
 
 end
 
