@@ -14,20 +14,12 @@ E_fl = 20400; %195 GPa, consistent unit is MPa
 E_gsk = 18000;
 poison = 0.3;
 poison_gsk = 0.26;
-pressure = .3103; 
+pressure = 310.3; 
 % read in the mesh
 originalMesh = ReadInMeshInfo(file, []);
 mesh = originalMesh;
 % number of nodes gets used a lot, store it
 N_n=originalMesh.NumNodes;
-
-figure(4)
-trimesh(originalMesh.TwoDElements, originalMesh.TwoDNodes(:,1),originalMesh.TwoDNodes(:,2))
-xlabel('X','fontsize',14)
-ylabel('Y','fontsize',14)
-title('New Mesh','fontsize',14)
-fh = figure(4);
-set(fh, 'color', 'white');
 
 % get nodes that are fixed (just making up numbers here)
 %fixedXNodes = Node.FindNodesInRange(originalMesh.Nodes, 2.98, 4.02, 0, 5); % holding inside wall constant
@@ -40,21 +32,21 @@ pressureNodes = Node.FindNodesInRange(originalMesh.Nodes, 0.305-0.017245, 0.305-
 pressureNodes = [pressureNodes, Node.FindNodesInRange(originalMesh.Nodes, 0.305-0.06535, 0.305-0.05736, -0.088, -0.0875)];
 
 % do it all!
-numSteps = 5;
+numSteps = 10;
 finalAnswer = zeros(1,N_n*2);
 pressures = [pressure];
 maxDisplacements = [1,length(pressures)];
 femSystems(1:length(pressures)) = FemSystem(1,2,3, 4);
 pc = 0;
 %for pressureSte = 1:numSteps
-for pressureToLoad = pressures
-    pc=pc+1;
-    %pressureToLoad = lastPressure + pressure/numSteps;
+for pc = 1:numSteps
+    %pc=pc+1;
+    % always adding the delta of the pressure 
+    pressureToLoad = pressure * 1/numSteps;
     femSystem = ApplyStressToMesh(mesh, E_fl, poison, pressureToLoad, pressureNodes, fixedXNodes, fixedYNodes);
     femSystems(pc)=femSystem;
-    mesh = ReadInMeshInfo(file, femSystem.D*100);
+    mesh = ReadInMeshInfo(file, femSystem.D);
     finalAnswer = finalAnswer + femSystem.D;
-    lastPressure = pressureToLoad;
     maxDisplacements(pc) = max(abs(finalAnswer));
 end
 maxDisplacements
@@ -66,7 +58,6 @@ stresses = zeros(3,N_n);
 strains = zeros(3,N_n);
 stressesPerNode = zeros([1,N_n]);
 strainsPerNode = zeros(1,N_n);
-strainsPerElement = zeros([1,length(femSystem.Elements)]);
 elc = 0;
 for el = femSystem.Elements
     elc=elc+1;
@@ -78,9 +69,21 @@ for el = femSystem.Elements
     y3 = finalAnswer((el.Node3.Index-1)*2+2);
     
     thisStrain = el.ComputeStrain([x1, y1, x2, y2, x3, y3]);
-    strains(elc) = thisStrain;
-    stresses = [stresses, el.ComputeStress(thisStrain)];
-    strainsPerElement(elc) = thisStrain(1);
+    strains(1,elc) = thisStrain(1);
+    strains(2,elc) = thisStrain(2);
+    strains(2,elc) = thisStrain(2);
+    thisStress = el.ComputeStress(thisStrain);
+    stresses(1, elc) = thisStress(1);
+    stresses(2, elc) = thisStress(2);
+    stresses(3, elc) = thisStress(3);
+
+    stressesPerNode(el.Node1.Index) =stressesPerNode(el.Node1.Index) + thisStress(1);
+    stressesPerNode(el.Node2.Index) =stressesPerNode(el.Node2.Index) + thisStress(2);
+    stressesPerNode(el.Node3.Index) =stressesPerNode(el.Node3.Index) + thisStress(3);
+    
+    strainsPerNode(el.Node1.Index) =strainsPerNode(el.Node1.Index) + thisStrain(1);
+    strainsPerNode(el.Node2.Index) =strainsPerNode(el.Node2.Index) + thisStrain(2);
+    strainsPerNode(el.Node3.Index) =strainsPerNode(el.Node3.Index) + thisStrain(3);
 end
 
 for nC= 1:N_n
@@ -89,40 +92,30 @@ for nC= 1:N_n
     y=finalAnswer((nC-1)*2+2);
     ys(nC) = y;
     magnitudes(nC) = sqrt(x*x+y*y);
-    
-    stressesPerNode(nC) = stresses((nC-1)*3+1);
-    strainsPerNode(nC) = strains((nC-1)*3+1);
-    %TODO: Stresses, strains, displacements at critical points (do we
-    %leak)?
 end
 
+figure(1)
+trimesh(mesh.TwoDElements, mesh.TwoDNodes(:,1),mesh.TwoDNodes(:,2), stressesPerNode)
+xlabel('X','fontsize',14)
+ylabel('Y','fontsize',14)
+title('Original Mes','fontsize',14)
+fh = figure(1);
+set(fh, 'color', 'white');
 
+figure(2)
+trimesh(mesh.TwoDElements, mesh.TwoDNodes(:,1),mesh.TwoDNodes(:,2), stressesPerNode)
+xlabel('X','fontsize',14)
+ylabel('Y','fontsize',14)
+title('Stresses','fontsize',14)
+fh = figure(2);
+set(fh, 'color', 'white'); 
 
-
-%---- visualize in matlab ---------------------
-% twoDNodes = mesh.TwoDNodes;
-% figure(1)
-% trimesh(mesh.TwoDElements, twoDNodes(:,1),twoDNodes(:,2), magnitudes)
-% xlabel('X','fontsize',14)
-% ylabel('Y','fontsize',14)
-% title('GMsh to MATLAB import','fontsize',14)
-% fh = figure(1);
-% set(fh, 'color', 'white'); 
-% 
-% figure(2)
-% trimesh(mesh.TwoDElements, twoDNodes(:,1),twoDNodes(:,2), xs)
-% xlabel('X','fontsize',14)
-% ylabel('Y','fontsize',14)
-% title('X displacement','fontsize',14)
-% fh = figure(2);
-% set(fh, 'color', 'white'); 
-% 
 figure(3)
-triplot(mesh.TwoDElements, mesh.TwoDNodes(:,1),mesh.TwoDNodes(:,2))
+trimesh(mesh.TwoDElements, mesh.TwoDNodes(:,1),mesh.TwoDNodes(:,2), strainsPerNode)
 xlabel('X','fontsize',14)
 ylabel('Y','fontsize',14)
 title('Strains','fontsize',14)
-fh = figure(3);
+fh = figure(4);
 set(fh, 'color', 'white'); 
 
 figure(5)
@@ -130,6 +123,7 @@ trimesh(mesh.TwoDElements, mesh.TwoDNodes(:,1),mesh.TwoDNodes(:,2), magnitudes)
 xlabel('X','fontsize',14)
 ylabel('Y','fontsize',14)
 title('New Mesh','fontsize',14)
-fh = figure(4);
+fh = figure(5);
 set(fh, 'color', 'white'); 
+
 %-------------------------------------------------------------------------

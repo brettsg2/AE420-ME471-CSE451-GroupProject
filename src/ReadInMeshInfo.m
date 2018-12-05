@@ -12,12 +12,12 @@ classdef ReadInMeshInfo < handle
     end
     
     methods
-        function obj = ReadInMeshInfo(filePathString, displacements)
+        function obj = ReadInMeshInfo(filePathString, nodeScale, displacements)
             file    =  (filePathString);
             obj.NumNodes      = dlmread(file,'',[5-1 1-1 5-1 1-1]);
             obj.NumElements      = dlmread(file,'',[7+obj.NumNodes 0 7+obj.NumNodes 0]);
             obj.NodeIds     = dlmread(file,'',[5 0 4+obj.NumNodes 0]);
-            obj.NodeValues       = dlmread(file,'',[5 1 4+obj.NumNodes 3]);
+            obj.NodeValues       = dlmread(file,'',[5 1 4+obj.NumNodes 3])*nodeScale;
             obj.Elements    = dlmread(file,'',[8+obj.NumNodes 0 7+obj.NumNodes+obj.NumElements 7]);
             obj.TwoDNodes = obj.NodeValues(:,1:2);
             obj.ElementTypes   = obj.Elements(:,2);        

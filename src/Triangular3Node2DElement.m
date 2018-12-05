@@ -137,7 +137,6 @@ classdef Triangular3Node2DElement < Element
                         0, 0, (1-v)/2];
             stress = eMat*strain;
         end
-    end
-    
+    end    
 end
 

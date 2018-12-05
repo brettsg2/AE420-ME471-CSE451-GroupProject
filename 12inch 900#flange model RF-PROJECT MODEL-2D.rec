@@ -110,3 +110,10 @@ mdb.models['2DSPIRAL-1'].sketches['FLANGE-5'].writeIgesFile(
 mdb.models['2DSPIRAL-1'].sketches['SPIRAL-5'].writeIgesFile(
     'C:/src/420GroupProj/AE420-ME471-CSE451-GroupProject/gasket.igs', flavor=
     STANDARD)
+mdb.models['2DSPIRAL-1'].ConstrainedSketch(name='__edit__', objectToCopy=
+    mdb.models['2DSPIRAL-1'].parts['FLGRF'].features['Partition face-1'].sketch)
+mdb.models['2DSPIRAL-1'].parts['FLGRF'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['2DSPIRAL-1'].sketches['__edit__'], 
+    upToFeature=
+    mdb.models['2DSPIRAL-1'].parts['FLGRF'].features['Partition face-1'])
+del mdb.models['2DSPIRAL-1'].sketches['__edit__']
