@@ -10,11 +10,11 @@ classdef FemSystem < handle
     end
     
     methods
-        function obj = FemSystem(k, r, d, ele)
+        function obj = FemSystem(k, r, d, Elements)
             obj.K = k;
             obj.R = r;
             obj.D = d;
-            obj.Elements = ele;
+            
         end
     end
     

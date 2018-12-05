@@ -6,82 +6,127 @@ clc
 close all
 clear 
 currentFolder = pwd;
-file    =  strcat(currentFolder, '\simpleFlange.msh');
+file    =  strcat(currentFolder, '\..\2DSPIRAL_HALFWOCAP.msh');
 % these constants are their natural SI value then multiplied/divided
 % to use a consistent set of units (the numbers at this point are simply
 % made up/plausable)
-E_fl = 195e9/1e6; %195 GPa, consistent unit is MPa
+E_fl = 20400; %195 GPa, consistent unit is MPa
+E_gsk = 18000;
 poison = 0.3;
-pressure = 100e6 / 1e6; %100 MPa, consistent unit is MPa
+poison_gsk = 0.26;
+pressure = .3103; 
 % read in the mesh
 originalMesh = ReadInMeshInfo(file, []);
 mesh = originalMesh;
 % number of nodes gets used a lot, store it
 N_n=originalMesh.NumNodes;
-femSystem=1; % allocate our final result (but better to have an array of each result...%TODO
-lastPressure = 0;
+
+figure(4)
+trimesh(originalMesh.TwoDElements, originalMesh.TwoDNodes(:,1),originalMesh.TwoDNodes(:,2))
+xlabel('X','fontsize',14)
+ylabel('Y','fontsize',14)
+title('New Mesh','fontsize',14)
+fh = figure(4);
+set(fh, 'color', 'white');
 
 % get nodes that are fixed (just making up numbers here)
-fixedNodes = Node.FindNodesInRange(originalMesh.Nodes, 2.98, 4.02, 0, 5); % pretend bolt is fixed
+%fixedXNodes = Node.FindNodesInRange(originalMesh.Nodes, 2.98, 4.02, 0, 5); % holding inside wall constant
 % and where we stop modeling the pipe (cause why not)
-fixedNodes = [fixedNodes, Node.FindNodesInRange(originalMesh.Nodes, 0, 1.01, 0, 0.02)];
+fixedXNodes = Node.FindNodesInRange(originalMesh.Nodes, 0.144, 0.1465, -0.25, 0.02);
+fixedYNodes = Node.FindNodesInRange(originalMesh.Nodes, 0.16, 0.184, -0.003, -0.002);
 
 % get nodes where there is a pressure
-pressureNodes = Node.FindNodesInRange(originalMesh.Nodes, 0, 0.02, 0, 6);
-pressureNodes = [pressureNodes, Node.FindNodesInRange(originalMesh.Nodes, 0, 3, 4.98, 6)];
-pressureNodes = [pressureNodes, Node.FindNodesInRange(originalMesh.Nodes, 2.98, 3.02, 4.98, 6)];
+pressureNodes = Node.FindNodesInRange(originalMesh.Nodes, 0.305-0.017245, 0.305-0.011255, -0.088, -0.0875);
+pressureNodes = [pressureNodes, Node.FindNodesInRange(originalMesh.Nodes, 0.305-0.06535, 0.305-0.05736, -0.088, -0.0875)];
 
 % do it all!
-numSteps = 1;
-for pressureSte = 1:numSteps
-    pressureToLoad = lastPressure + pressure/numSteps;
-    femSystem = ApplyStressToMesh(mesh, E_fl, poison, pressureToLoad, pressureNodes, 0, [], fixedNodes);
-    mesh = ReadInMeshInfo(file, femSystem.D);
+numSteps = 5;
+finalAnswer = zeros(1,N_n*2);
+pressures = [pressure];
+maxDisplacements = [1,length(pressures)];
+femSystems(1:length(pressures)) = FemSystem(1,2,3, 4);
+pc = 0;
+%for pressureSte = 1:numSteps
+for pressureToLoad = pressures
+    pc=pc+1;
+    %pressureToLoad = lastPressure + pressure/numSteps;
+    femSystem = ApplyStressToMesh(mesh, E_fl, poison, pressureToLoad, pressureNodes, fixedXNodes, fixedYNodes);
+    femSystems(pc)=femSystem;
+    mesh = ReadInMeshInfo(file, femSystem.D*100);
+    finalAnswer = finalAnswer + femSystem.D;
     lastPressure = pressureToLoad;
+    maxDisplacements(pc) = max(abs(finalAnswer));
 end
-finalAnswer = femSystem.D;
+maxDisplacements
 % post processing
 magnitudes = 1:N_n;
 xs = 1:N_n;
 ys = 1:N_n;
+stresses = zeros(3,N_n);
+strains = zeros(3,N_n);
+stressesPerNode = zeros([1,N_n]);
+strainsPerNode = zeros(1,N_n);
+strainsPerElement = zeros([1,length(femSystem.Elements)]);
+elc = 0;
+for el = femSystem.Elements
+    elc=elc+1;
+    x1 = finalAnswer((el.Node1.Index-1)*2+1);
+    y1 = finalAnswer((el.Node1.Index-1)*2+2);
+    x2 = finalAnswer((el.Node2.Index-1)*2+1);
+    y2 = finalAnswer((el.Node2.Index-1)*2+2);
+    x3 = finalAnswer((el.Node3.Index-1)*2+1);
+    y3 = finalAnswer((el.Node3.Index-1)*2+2);
+    
+    thisStrain = el.ComputeStrain([x1, y1, x2, y2, x3, y3]);
+    strains(elc) = thisStrain;
+    stresses = [stresses, el.ComputeStress(thisStrain)];
+    strainsPerElement(elc) = thisStrain(1);
+end
+
 for nC= 1:N_n
     x=finalAnswer((nC-1)*2+1);
     xs(nC) = x;
     y=finalAnswer((nC-1)*2+2);
     ys(nC) = y;
     magnitudes(nC) = sqrt(x*x+y*y);
+    
+    stressesPerNode(nC) = stresses((nC-1)*3+1);
+    strainsPerNode(nC) = strains((nC-1)*3+1);
     %TODO: Stresses, strains, displacements at critical points (do we
     %leak)?
 end
 
+
+
+
 %---- visualize in matlab ---------------------
-twoDNodes = mesh.TwoDNodes;
-figure(1)
-trimesh(mesh.TwoDElements, twoDNodes(:,1),twoDNodes(:,2), magnitudes)
-xlabel('X','fontsize',14)
-ylabel('Y','fontsize',14)
-title('GMsh to MATLAB import','fontsize',14)
-fh = figure(1);
-set(fh, 'color', 'white'); 
-
-figure(2)
-trimesh(mesh.TwoDElements, twoDNodes(:,1),twoDNodes(:,2), xs)
-xlabel('X','fontsize',14)
-ylabel('Y','fontsize',14)
-title('X displacement','fontsize',14)
-fh = figure(2);
-set(fh, 'color', 'white'); 
-
+% twoDNodes = mesh.TwoDNodes;
+% figure(1)
+% trimesh(mesh.TwoDElements, twoDNodes(:,1),twoDNodes(:,2), magnitudes)
+% xlabel('X','fontsize',14)
+% ylabel('Y','fontsize',14)
+% title('GMsh to MATLAB import','fontsize',14)
+% fh = figure(1);
+% set(fh, 'color', 'white'); 
+% 
+% figure(2)
+% trimesh(mesh.TwoDElements, twoDNodes(:,1),twoDNodes(:,2), xs)
+% xlabel('X','fontsize',14)
+% ylabel('Y','fontsize',14)
+% title('X displacement','fontsize',14)
+% fh = figure(2);
+% set(fh, 'color', 'white'); 
+% 
 figure(3)
-trimesh(mesh.TwoDElements, twoDNodes(:,1),twoDNodes(:,2), ys)
+triplot(mesh.TwoDElements, mesh.TwoDNodes(:,1),mesh.TwoDNodes(:,2))
 xlabel('X','fontsize',14)
 ylabel('Y','fontsize',14)
-title('Y displacement','fontsize',14)
+title('Strains','fontsize',14)
 fh = figure(3);
 set(fh, 'color', 'white'); 
 
-figure(4)
-trimesh(mesh.TwoDElements, mesh.TwoDNodes(:,1),mesh.TwoDNodes(:,2))
+figure(5)
+trimesh(mesh.TwoDElements, mesh.TwoDNodes(:,1),mesh.TwoDNodes(:,2), magnitudes)
 xlabel('X','fontsize',14)
 ylabel('Y','fontsize',14)
 title('New Mesh','fontsize',14)

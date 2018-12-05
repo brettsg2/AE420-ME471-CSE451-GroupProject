@@ -126,7 +126,7 @@ classdef Triangular3Node2DElement < Element
                     x3-x2, y2-y3, x1-x3, y3-y1, x2-x1, y1-y2];
             A = obj.AreaOfElement();
             bMat = (1/2*A)*bMat;
-            strain = bMat*transpose(deltas);
+            strain = bMat*deltas;
         end
         
         function stress = ComputeStress(obj, strain)
@@ -135,7 +135,7 @@ classdef Triangular3Node2DElement < Element
             eMat = eSc*[1, v, 0; 
                         v, 1, 0;
                         0, 0, (1-v)/2];
-            stress = eMat*strain;
+            stress = 
         end
     end
     
