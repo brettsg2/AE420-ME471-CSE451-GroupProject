@@ -41578,3 +41578,134 @@ mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(COMPLETED, {'phase': STANDARD_PHASE,
 mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(JOB_COMPLETED, {
     'time': 'Sat Dec 08 16:35:59 2018', 'jobName': '2DSPIRAL-HALFWOCAP'})
 # Save by bijran on 2018_12_08-16.36.05; build 6.14-2 2014_08_22-22.00.46 134497
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['2DSPIRAL'].loads['Load-2'].setValues(magnitude=199.6)
+mdb.models['2DSPIRAL-1'].loads['Load-1'].setValues(magnitude=199.6)
+mdb.models['2DSPIRAL-HALF'].loads['Load-1'].setValues(magnitude=199.6)
+mdb.models['2DSPIRAL-WOGASKETPROP'].loads['Load-1'].setValues(magnitude=199.6)
+mdb.jobs['2DSPIRAL-HALFWOCAP'].submit(consistencyChecking=OFF)
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 0, 'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR CONTACT PAIR (ASSEMBLY_S_SET-23_CNS_-ASSEMBLY_M_SURF-12), ADJUSTMENT WAS SPECIFIED BUT NO NODE WAS ADJUSTED MORE THAN THE ADJUSTMENT DISTANCE = 2.22000E-16.', 
+    'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Abaqus IS UNABLE TO ESTIMATE AN AVERAGE INTERFACE ELEMENT LENGTH. THE WHOLE MODEL CHARACTERISTIC ELEMENT LENGTH IS USED INSTEAD.', 
+    'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\2DSPIRAL-HALFWOCAP.odb', 
+    'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 32468, 
+    'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(STATUS, {'totalTime': 0.0, 
+    'attempts': 0, 'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 
+    'step': 1, 'jobName': '2DSPIRAL-HALFWOCAP', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': '2DSPIRAL-HALFWOCAP', 'memory': 25.0})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(STATUS, {'totalTime': 1.0, 
+    'attempts': 1, 'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 
+    'step': 1, 'jobName': '2DSPIRAL-HALFWOCAP', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['2DSPIRAL-HALFWOCAP']._Message(JOB_COMPLETED, {
+    'time': 'Sun Dec 09 09:09:51 2018', 'jobName': '2DSPIRAL-HALFWOCAP'})
+mdb.jobs['TWODRFWITHCAP'].submit(consistencyChecking=OFF)
+mdb.jobs['TWODRFWITHCAP']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 0, 'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE SURFACE ASSEMBLY_S_SET-4_CNS_ IS A NODE-BASED SURFACE USED WITH SURFACE TO SURFACE APPROACH.  IN ORDER TO OBTAIN IMPROVED STRESS ACCURACY WITH THIS APPROACH, AN ELEMENT-BASED SURFACE SHOULD BE USED INSTEAD.', 
+    'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'DEGREE OF FREEDOM 6 IS NOT ACTIVE IN THIS MODEL AND CANNOT BE RESTRAINED.', 
+    'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '2 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\TWODRFWITHCAP.odb', 'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 24968, 'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'TWODRFWITHCAP', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['TWODRFWITHCAP']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'TWODRFWITHCAP', 'memory': 25.0})
+mdb.jobs['TWODRFWITHCAP']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'TWODRFWITHCAP', 'severe': 2, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['TWODRFWITHCAP']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWITHCAP']._Message(JOB_COMPLETED, {
+    'time': 'Sun Dec 09 09:10:09 2018', 'jobName': 'TWODRFWITHCAP'})
+mdb.jobs['TWODRFWOCAP'].submit(consistencyChecking=OFF)
+mdb.jobs['TWODRFWOCAP']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 0, 'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'DEGREE OF FREEDOM 6 IS NOT ACTIVE IN THIS MODEL AND CANNOT BE RESTRAINED.', 
+    'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\TWODRFWOCAP.odb', 'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 32648, 'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'TWODRFWOCAP', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['TWODRFWOCAP']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'TWODRFWOCAP', 'memory': 28.0})
+mdb.jobs['TWODRFWOCAP']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'TWODRFWOCAP', 'severe': 0, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['TWODRFWOCAP']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'TWODRFWOCAP'})
+mdb.jobs['TWODRFWOCAP']._Message(JOB_COMPLETED, {
+    'time': 'Sun Dec 09 09:10:29 2018', 'jobName': 'TWODRFWOCAP'})
+# Save by sam on 2018_12_09-09.10.53; build 6.14-2 2014_08_22-10.00.46 134497
