@@ -33,7 +33,7 @@ pressureNodes = Node.FindNodesInRange(originalMesh.Nodes, (0.305-0.017245)*100, 
 pressureNodes = [pressureNodes, Node.FindNodesInRange(originalMesh.Nodes, (0.305-0.06535)*100, (0.305-0.05736)*100, (-0.088)*100, (-0.0875)*100)];
 
 % do it all!
-numSteps = 10;
+numSteps = 1;
 finalAnswer = zeros(1,N_n*2);
 pressures = [pressure];
 maxDisplacements = [1,length(pressures)];
@@ -139,7 +139,7 @@ fh = figure(4);
 set(fh, 'color', 'white'); 
 
 figure(5)
-exMesh = ReadInMeshInfo(file, 100, femSystem.D*100);
+exMesh = ReadInMeshInfo(file, 100, finalAnswer*10);
 trimesh(exMesh .TwoDElements, exMesh.TwoDNodes(:,1),exMesh .TwoDNodes(:,2), magnitudes)
 xlabel('X','fontsize',14)
 ylabel('Y','fontsize',14)
