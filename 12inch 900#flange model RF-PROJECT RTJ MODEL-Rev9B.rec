@@ -1,0 +1,623 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['FlangeRTJ9B'].submit(consistencyChecking=OFF)
+mdb.jobs['FlangeRTJ9B']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 0, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'NOT ALL THE NODES THAT DO NOT FIND INTERSECTION WITH THE MASTER SURFACE ARE PRINTED. HOWEVER ALL OF THESE NODES HAVE BEEN INCLUDED IN A NODE SET.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR CONTACT PAIR (ASSEMBLY_CP-3-RTJ-1-ASSEMBLY_CP-3-FLANGE-1), NOT ALL THE NODES THAT HAVE BEEN ADJUSTED WERE PRINTED. SPECIFY *PREPRINT,CONTACT=YES FOR COMPLETE PRINTOUT.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '6 connector elements have both nodes on the same *RIGID BODY. Any constraints that might be enforced by these elements will be neglected (except they are of type slipring or flow-converter) since otherwise overconstraints will occur. The elements have been identified in element set WarnElemOverconConnRB.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Nodes belonging to 1 RIGID BODIES have boundary conditions prescribed at nodes other than the reference node(s). Because different *TRANSFORM options have been used at these nodes. these boundary conditions cannot be transferred to the correspondent reference node(s). Furthermore, these boundary conditions will be neglected.The reference node(s) of these rigid bodies have been identified in node set WarnNodeOverconBoundRBTra.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '25 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '25 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '25 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\FlangeRTJ9B.odb', 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 32924, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THERE ARE 4 UNCONNECTED REGIONS IN THE MODEL.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'FlangeRTJ9B', 'memory': 700.0})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 477 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 525 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 3 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 173 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 3, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 3 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 107 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 1577 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 5, 'iterations': 5, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 39 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 3U', 
+    'timeIncrement': 0.0625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 5, 'iterations': 5, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.015625, 'attempts': 4, 
+    'timeIncrement': 0.015625, 'increment': 1, 'stepTime': 0.015625, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 3, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.03125, 'attempts': 1, 
+    'timeIncrement': 0.015625, 'increment': 2, 'stepTime': 0.03125, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 1, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0546875, 
+    'attempts': 1, 'timeIncrement': 0.0234375, 'increment': 3, 
+    'stepTime': 0.0546875, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.08984375, 
+    'attempts': 1, 'timeIncrement': 0.03515625, 'increment': 4, 
+    'stepTime': 0.08984375, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 0, 
+    'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 43 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 129 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 123 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 242 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 627 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 5 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.08984375, 
+    'attempts': ' 1U', 'timeIncrement': 0.03515625, 'increment': 5, 
+    'stepTime': 0.08984375, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 8, 
+    'iterations': 9, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0986328125, 
+    'attempts': 2, 'timeIncrement': 0.0087890625, 'increment': 5, 
+    'stepTime': 0.0986328125, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 2, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.107421875, 
+    'attempts': 1, 'timeIncrement': 0.0087890625, 'increment': 6, 
+    'stepTime': 0.107421875, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 1, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 7, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.12060546875, 
+    'attempts': 1, 'timeIncrement': 0.01318359375, 'increment': 7, 
+    'stepTime': 0.12060546875, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 8, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.140380859375, 
+    'attempts': 1, 'timeIncrement': 0.019775390625, 'increment': 8, 
+    'stepTime': 0.140380859375, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 9, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.1700439453125, 
+    'attempts': 1, 'timeIncrement': 0.0296630859375, 'increment': 9, 
+    'stepTime': 0.1700439453125, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 43 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 43 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 86 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.1700439453125, 
+    'attempts': ' 1U', 'timeIncrement': 0.04449462890625, 'increment': 10, 
+    'stepTime': 0.1700439453125, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 5, 'iterations': 7, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 10, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.181167602539063, 
+    'attempts': 2, 'timeIncrement': 0.0111236572265625, 'increment': 10, 
+    'stepTime': 0.181167602539063, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 11, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.197853088378906, 
+    'attempts': 1, 'timeIncrement': 0.0166854858398438, 'increment': 11, 
+    'stepTime': 0.197853088378906, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 12, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.222881317138672, 
+    'attempts': 1, 'timeIncrement': 0.0250282287597656, 'increment': 12, 
+    'stepTime': 0.222881317138672, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 2 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 2 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(ERROR, {'phase': STANDARD_PHASE, 
+    'message': 'Process terminated by external request (SIGTERM or SIGINT received).', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(INTERRUPTED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis interrupted by external signal', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B'].submit(consistencyChecking=OFF)
+mdb.jobs['FlangeRTJ9B']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 0, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'NOT ALL THE NODES THAT DO NOT FIND INTERSECTION WITH THE MASTER SURFACE ARE PRINTED. HOWEVER ALL OF THESE NODES HAVE BEEN INCLUDED IN A NODE SET.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR CONTACT PAIR (ASSEMBLY_CP-3-RTJ-1-ASSEMBLY_CP-3-FLANGE-1), NOT ALL THE NODES THAT HAVE BEEN ADJUSTED WERE PRINTED. SPECIFY *PREPRINT,CONTACT=YES FOR COMPLETE PRINTOUT.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '6 connector elements have both nodes on the same *RIGID BODY. Any constraints that might be enforced by these elements will be neglected (except they are of type slipring or flow-converter) since otherwise overconstraints will occur. The elements have been identified in element set WarnElemOverconConnRB.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Nodes belonging to 1 RIGID BODIES have boundary conditions prescribed at nodes other than the reference node(s). Because different *TRANSFORM options have been used at these nodes. these boundary conditions cannot be transferred to the correspondent reference node(s). Furthermore, these boundary conditions will be neglected.The reference node(s) of these rigid bodies have been identified in node set WarnNodeOverconBoundRBTra.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '25 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '25 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '25 nodes have dof on which incorrect boundary conditions may have been specified. The nodes have been identified in node set WarnNodeBCIncorrectDof.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Temp\\FlangeRTJ9B.odb', 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'Sam-Laptop', 'handle': 29592, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THERE ARE 4 UNCONNECTED REGIONS IN THE MODEL.', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'FlangeRTJ9B', 'memory': 700.0})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 477 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 525 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 3 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 173 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 3, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 3 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 107 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 1577 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 5, 'iterations': 5, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 39 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 3U', 
+    'timeIncrement': 0.0625, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 5, 'iterations': 5, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.015625, 'attempts': 4, 
+    'timeIncrement': 0.015625, 'increment': 1, 'stepTime': 0.015625, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 3, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.03125, 'attempts': 1, 
+    'timeIncrement': 0.015625, 'increment': 2, 'stepTime': 0.03125, 'step': 1, 
+    'jobName': 'FlangeRTJ9B', 'severe': 1, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0546875, 
+    'attempts': 1, 'timeIncrement': 0.0234375, 'increment': 3, 
+    'stepTime': 0.0546875, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 0, 
+    'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.08984375, 
+    'attempts': 1, 'timeIncrement': 0.03515625, 'increment': 4, 
+    'stepTime': 0.08984375, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 0, 
+    'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 43 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 129 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 123 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 242 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 627 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 5 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.08984375, 
+    'attempts': ' 1U', 'timeIncrement': 0.03515625, 'increment': 5, 
+    'stepTime': 0.08984375, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 8, 
+    'iterations': 9, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 5, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.0986328125, 
+    'attempts': 2, 'timeIncrement': 0.0087890625, 'increment': 5, 
+    'stepTime': 0.0986328125, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 2, 
+    'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 6, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.107421875, 
+    'attempts': 1, 'timeIncrement': 0.0087890625, 'increment': 6, 
+    'stepTime': 0.107421875, 'step': 1, 'jobName': 'FlangeRTJ9B', 'severe': 1, 
+    'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 7, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.12060546875, 
+    'attempts': 1, 'timeIncrement': 0.01318359375, 'increment': 7, 
+    'stepTime': 0.12060546875, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 8, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.140380859375, 
+    'attempts': 1, 'timeIncrement': 0.019775390625, 'increment': 8, 
+    'stepTime': 0.140380859375, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 9, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.1700439453125, 
+    'attempts': 1, 'timeIncrement': 0.0296630859375, 'increment': 9, 
+    'stepTime': 0.1700439453125, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 43 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 43 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 86 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.1700439453125, 
+    'attempts': ' 1U', 'timeIncrement': 0.04449462890625, 'increment': 10, 
+    'stepTime': 0.1700439453125, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 5, 'iterations': 7, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 10, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.181167602539063, 
+    'attempts': 2, 'timeIncrement': 0.0111236572265625, 'increment': 10, 
+    'stepTime': 0.181167602539063, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 11, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.197853088378906, 
+    'attempts': 1, 'timeIncrement': 0.0166854858398438, 'increment': 11, 
+    'stepTime': 0.197853088378906, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 12, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.222881317138672, 
+    'attempts': 1, 'timeIncrement': 0.0250282287597656, 'increment': 12, 
+    'stepTime': 0.222881317138672, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 5})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 2 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 2 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 16 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.222881317138672, 
+    'attempts': ' 1U', 'timeIncrement': 0.0250282287597656, 'increment': 13, 
+    'stepTime': 0.222881317138672, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 6, 'iterations': 9, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 13, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.229138374328613, 
+    'attempts': 2, 'timeIncrement': 0.00625705718994141, 'increment': 13, 
+    'stepTime': 0.229138374328613, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 14, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.235395431518555, 
+    'attempts': 1, 'timeIncrement': 0.00625705718994141, 'increment': 14, 
+    'stepTime': 0.235395431518555, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 15, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.244781017303467, 
+    'attempts': 1, 'timeIncrement': 0.00938558578491211, 'increment': 15, 
+    'stepTime': 0.244781017303467, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 16, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.258859395980835, 
+    'attempts': 1, 'timeIncrement': 0.0140783786773682, 'increment': 16, 
+    'stepTime': 0.258859395980835, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 17, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.279976963996887, 
+    'attempts': 1, 'timeIncrement': 0.0211175680160522, 'increment': 17, 
+    'stepTime': 0.279976963996887, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 3, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 154 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 288 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 449 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 40 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT IS SO LARGE THAT THE PROGRAM WILL NOT ATTEMPT THE PLASTICITY CALCULATION AT 6 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 100 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.279976963996887, 
+    'attempts': ' 1U', 'timeIncrement': 0.0316763520240784, 'increment': 18, 
+    'stepTime': 0.279976963996887, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 7, 'iterations': 7, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 18, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.287896052002907, 
+    'attempts': 2, 'timeIncrement': 0.00791908800601959, 'increment': 18, 
+    'stepTime': 0.287896052002907, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 19, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.299774684011936, 
+    'attempts': 1, 'timeIncrement': 0.0118786320090294, 'increment': 19, 
+    'stepTime': 0.299774684011936, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 20, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.31759263202548, 
+    'attempts': 1, 'timeIncrement': 0.0178179480135441, 'increment': 20, 
+    'stepTime': 0.31759263202548, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 21, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.344319554045796, 
+    'attempts': 1, 'timeIncrement': 0.0267269220203161, 'increment': 21, 
+    'stepTime': 0.344319554045796, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 22, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.384409937076271, 
+    'attempts': 1, 'timeIncrement': 0.0400903830304742, 'increment': 22, 
+    'stepTime': 0.384409937076271, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 2, 'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 2 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 8 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.384409937076271, 
+    'attempts': ' 1U', 'timeIncrement': 0.0601355745457113, 'increment': 23, 
+    'stepTime': 0.384409937076271, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 4, 'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 23, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.399443830712698, 
+    'attempts': 2, 'timeIncrement': 0.0150338936364278, 'increment': 23, 
+    'stepTime': 0.399443830712698, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 24, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.42199467116734, 
+    'attempts': 1, 'timeIncrement': 0.0225508404546417, 'increment': 24, 
+    'stepTime': 0.42199467116734, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 25, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.455820931849303, 
+    'attempts': 1, 'timeIncrement': 0.0338262606819626, 'increment': 25, 
+    'stepTime': 0.455820931849303, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 2, 'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 387 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 3 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 48 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.455820931849303, 
+    'attempts': ' 1U', 'timeIncrement': 0.0507393910229439, 'increment': 26, 
+    'stepTime': 0.455820931849303, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 4, 'iterations': 4, 'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 215 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 1918 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 1 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'EXCESSIVE DISTORTION AT A TOTAL OF 384 INTEGRATION POINTS IN SOLID (CONTINUUM) ELEMENTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.455820931849303, 
+    'attempts': ' 2U', 'timeIncrement': 0.012684847755736, 'increment': 26, 
+    'stepTime': 0.455820931849303, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 5, 'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 26, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.458992143788237, 
+    'attempts': 3, 'timeIncrement': 0.00317121193893399, 'increment': 26, 
+    'stepTime': 0.458992143788237, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 6, 'phase': STANDARD_PHASE, 'equilibrium': 6})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 27, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.462163355727171, 
+    'attempts': 1, 'timeIncrement': 0.00317121193893399, 'increment': 27, 
+    'stepTime': 0.462163355727171, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 28, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.465334567666105, 
+    'attempts': 1, 'timeIncrement': 0.00317121193893399, 'increment': 28, 
+    'stepTime': 0.465334567666105, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 29, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.470091385574506, 
+    'attempts': 1, 'timeIncrement': 0.00475681790840099, 'increment': 29, 
+    'stepTime': 0.470091385574506, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 30, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.477226612437107, 
+    'attempts': 1, 'timeIncrement': 0.00713522686260148, 'increment': 30, 
+    'stepTime': 0.477226612437107, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 2, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 31, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.487929452731009, 
+    'attempts': 1, 'timeIncrement': 0.0107028402939022, 'increment': 31, 
+    'stepTime': 0.487929452731009, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 32, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.503983713171863, 
+    'attempts': 1, 'timeIncrement': 0.0160542604408533, 'increment': 32, 
+    'stepTime': 0.503983713171863, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 3, 'phase': STANDARD_PHASE, 'equilibrium': 3})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 33, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.528065103833143, 
+    'attempts': 1, 'timeIncrement': 0.02408139066128, 'increment': 33, 
+    'stepTime': 0.528065103833143, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 0, 'iterations': 2, 'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['FlangeRTJ9B']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 34, 'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.564187189825063, 
+    'attempts': 1, 'timeIncrement': 0.03612208599192, 'increment': 34, 
+    'stepTime': 0.564187189825063, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 1, 'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 4})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 2 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 31 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(WARNING, {'phase': STANDARD_PHASE, 
+    'message': 'THE STRAIN INCREMENT HAS EXCEEDED FIFTY TIMES THE STRAIN TO CAUSE FIRST YIELD AT 175 POINTS', 
+    'jobName': 'FlangeRTJ9B'})
+mdb.jobs['FlangeRTJ9B']._Message(STATUS, {'totalTime': 0.564187189825063, 
+    'attempts': ' 1U', 'timeIncrement': 0.05418312898788, 'increment': 35, 
+    'stepTime': 0.564187189825063, 'step': 1, 'jobName': 'FlangeRTJ9B', 
+    'severe': 4, 'iterations': 5, 'phase': STANDARD_PHASE, 'equilibrium': 1})
