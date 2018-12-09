@@ -6,7 +6,7 @@ clc
 close all
 clear 
 currentFolder = pwd;
-file    =  strcat(currentFolder, '\..\2DSPIRAL_HALFWOCAP.msh');
+file    =  strcat(currentFolder, '\2DSPIRAL_HALFWOCAP.msh');
 % these constants are their natural SI value then multiplied/divided
 % to use a consistent set of units (the numbers at this point are simply
 % made up/plausable)
